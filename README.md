@@ -77,10 +77,10 @@ $agent = \Dialogflow\WebhookClient::fromData($request->json()->all());
 $intent = $agent->getIntent();
 ```
 
-- [Fulfillment Text]
+- Fulfillment Text
 
 ```php
-$intent = $agent->getFulfillmentText();
+$fulfillmentText = $agent->getFulfillmentText();
 ```
 
 
@@ -124,7 +124,7 @@ $language = $agent->getLocale();
 - [Request Source]() (ex: `google`, `facebook`, `slack`, etc)
 
 ```php
-$originalRequest = $agent->getRequestSource();
+$originalRequestSource = $agent->getRequestSource();
 ```
 
 - [Original Request](https://github.com/eristemena/dialog-fulfillment-webhook-php/blob/master/docs/WebhookClient.md#webhookclientgetoriginalrequest), platform specific payload
