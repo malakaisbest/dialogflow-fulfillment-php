@@ -19,6 +19,9 @@ class WebhookClient extends RichMessage
     /** @var string|null */
     protected $action;
 
+    /** @var string|null */
+    protected $fulfillmentText
+
     /** @var string */
     protected $session;
 
@@ -122,6 +125,9 @@ class WebhookClient extends RichMessage
     {
         $this->agentVersion = 2;
 
+        $this->fulfillmentText = $data['queryResult']['fulfillmentText'];
+		
+		
         $this->intent = $data['queryResult']['intent']['displayName'];
         $this->action = (isset($data['queryResult']['action'])) ? $data['queryResult']['action'] : null;
         $this->session = $data['session'];
@@ -150,6 +156,17 @@ class WebhookClient extends RichMessage
         $this->query = $data['queryResult']['queryText'];
         $this->locale = $data['queryResult']['languageCode'];
     }
+
+	/**
+     * get the response from Dialogflow Engin
+     *
+     * @return string
+     */
+    public function getFulfillmentText()
+    {
+        return $this->fulfillmentText;
+    }
+
 
     /**
      * The agent version (v1 or v2) based on Dialogflow webhook request.
