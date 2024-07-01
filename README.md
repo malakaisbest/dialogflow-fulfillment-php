@@ -77,6 +77,14 @@ $agent = \Dialogflow\WebhookClient::fromData($request->json()->all());
 $intent = $agent->getIntent();
 ```
 
+- [Fulfillment Text]
+
+```php
+$intent = $agent->getFulfillmentText();
+```
+
+
+
 - [Action](https://github.com/eristemena/dialog-fulfillment-webhook-php/blob/master/docs/WebhookClient.md#webhookclientgetaction)
 
 ```php
